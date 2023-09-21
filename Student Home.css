@@ -1,0 +1,102 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #007acc;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for individual features */
+.feature {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Different background colors for each feature */
+.feature:nth-child(1) {
+    background-color: #00bfff; /* Light Gray */
+}
+
+.feature:nth-child(2) {
+    background-color: #1E90FF; /* Wheat */
+}
+
+.feature:nth-child(3) {
+    background-color: #0000FF; /* Light Gray */
+}
+
+.feature:nth-child(4) {
+    background-color: #0000CD; /* Rosy Brown */
+}
+
+.feature:nth-child(5) {
+    background-color: #00008B; /* Moccasin */
+}
+
+.feature:nth-child(6) {
+    background-color: #191970; /* Thistle */
+}
+
+/* Feature hover effect */
+.feature:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style for feature headings */
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff; /* White text color */
+}
+
+/* Additional styles for links or buttons within features */
+.feature a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #007acc; /* Link color */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feature a:hover {
+    background-color: #007acc; /* Hover background color */
+    color: #fff; /* Hover text color */
+}
+
+

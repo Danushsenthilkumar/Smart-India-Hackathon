@@ -1,0 +1,31 @@
+
+.TS{
+    color:black;
+}
+.TS1{
+    color: black;
+}
+.TS2{
+    color: black;
+}
+.TS3{
+    color: black;
+}
+.TS4{
+    color: black;
+}
+.n1{
+    color: rgb(9, 248, 9);
+}
+.n2{
+    color: rgb(223, 141, 34);
+}
+.n3{
+    color: olive;
+}
+.n4{
+    color: orchid;
+}
+body{
+    border: 10px solid black;
+}
