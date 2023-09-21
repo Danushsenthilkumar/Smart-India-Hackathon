@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Search</title>
+</head>
+<body>
+    <h1>Voice Search</h1>
+    <p>Click the microphone button and speak:</p>
+
+    <button id="startButton">Start Voice Search</button>
+    <button id="showContentButton" style="display: none;">Show Spoken Content</button>
+    <p id="result"></p>
+
+    <div id="searchableContent">
+        <!-- Content on your website that can be searched -->
+        <p>Sample content. You can search for keywords like "example" or "demo".</p>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const showContentButton = document.getElementById('showContentButton');
+        const result = document.getElementById('result');
+        const searchableContent = document.getElementById('searchableContent');
+
+        let spokenText = ''; // Variable to store the spoken text
+
+        // Check if the browser supports the Web Speech API
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+            recognition.lang = 'en-US'; // Set the language for recognition
+
+            recognition.onstart = function() {
+                startButton.textContent = 'Listening...';
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                spokenText = transcript; // Store the spoken text in the variable
+                result.textContent = 'You said: ' + transcript;
+                searchContent(transcript);
+                showContentButton.style.display = 'block'; // Show the button to display content
+            };
+
+            recognition.onend = function() {
+                startButton.textContent = 'Start Voice Search';
+            };
+
+            startButton.addEventListener('click', function() {
+                recognition.start();
+            });
+
+            showContentButton.addEventListener('click', function() {
+                showStoredContent();
+            });
+        } else {
+            result.textContent = 'Sorry, your browser does not support voice recognition.';
+        }
+
+        // Function to search for content based on recognized speech
+        function searchContent(keyword) {
+            const content = searchableContent.innerHTML.toLowerCase();
+            keyword = keyword.toLowerCase();
+
+            if (content.includes(keyword)) {
+                result.textContent = `Found: "${keyword}"`;
+            } else {
+                result.textContent = `Not found: "${keyword}"`;
+            }
+        }
+
+        // Function to display the stored spoken content
+        function showStoredContent() {
+            result.textContent = 'Stored Spoken Content: ' + spokenText;
+        }
+    </script>
+</body>
+</html>
+

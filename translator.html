@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Search</title>
+</head>
+<body>
+    <h1>Voice Search</h1>
+    <p>Click the microphone button and speak to perform a search:</p>
+
+    <button id="startButton">Start Voice Search</button>
+    <p id="result"></p>
+
+    <div id="searchableContent">
+        <!-- Content on your website that can be searched -->
+        <p>Sample content. You can search for keywords like "example" or "demo".</p>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const result = document.getElementById('result');
+        const searchableContent = document.getElementById('searchableContent');
+
+        // Check if the browser supports the Web Speech API
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+            recognition.lang = 'en-US'; // Set the language for recognition
+
+            recognition.onstart = function() {
+                startButton.textContent = 'Listening...';
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                result.textContent = 'You said: ' + transcript;
+                searchContent(transcript);
+            };
+
+            recognition.onend = function() {
+                startButton.textContent = 'Start Voice Search';
+            };
+
+            startButton.addEventListener('click', function() {
+                recognition.start();
+            });
+        } else {
+            result.textContent = 'Sorry, your browser does not support voice recognition.';
+        }
+
+        // Function to search for content based on recognized speech
+        function searchContent(keyword) {
+            const content = searchableContent.innerHTML.toLowerCase();
+            keyword = keyword.toLowerCase();
+
+            if (content.includes(keyword)) {
+                result.textContent = `Found: "${keyword}"`;
+            } else {
+                result.textContent = `Not found: "${keyword}"`;
+            }
+        }
+    </script>
+</body>
+</html>
+

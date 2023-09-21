@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Use min-height to center vertically */
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+  background-image: url("hel.jpg");
+  margin: 0; /* Remove default margin to center horizontally */
+}
+
+form {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a90e2;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #055cbf;
+}

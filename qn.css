@@ -1,0 +1,51 @@
+/* Style the overall form */
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Style each question and answer section */
+.question {
+    margin-bottom: 20px;
+}
+
+/* Style the questions */
+label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Style the answer textareas */
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+/* Style the "Done" button container */
+.button-container {
+    text-align: right;
+}
+
+/* Style the "Done" button */
+input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
